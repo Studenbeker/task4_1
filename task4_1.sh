@@ -1,5 +1,7 @@
 #!/bin/bash
-exec 1> $PWD/task4_1.out
+dir=$(dirname $0)
+
+exec 1> $dir/task4_1.out
 
 BSN=(`dmidecode -s baseboard-serial-number`)
 if [ $BSN == 0 ];
