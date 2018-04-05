@@ -9,7 +9,7 @@ echo "RAM: "`free | grep Mem | awk '{print $2}'` "KB"
 MF=$(dmidecode -s baseboard-manufacturer)
 MBOARD=$(dmidecode -s baseboard-product-name)
 
-if [[ $MBOARD == "Unknown" && $MFR=="Unknown" ]] ; 
+if [[ $MBOARD == "Unknown" && $MF == "Unknown" ]] ; 
 then
 echo "Motherboard: Unknown"
 else 
