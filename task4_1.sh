@@ -23,11 +23,11 @@ echo "--- SYSTEM ---"
 echo "OS Distribution: "`lsb_release -d --short`
 echo "Kernel version: "`uname -r`
 echo "Installation date:" $(ls -alct /|tail -1|awk '{print $6, $7, $8}')
-echo "Hostname: "`hostname`
+echo "Hostname: "$(hostname -f)
 echo "Uptime: "`uptime -p | awk '{print $2,$3,$4,$5,$6,$7,$8}'`
 echo "Processes running: "`ps aux --no-headers | wc -l`
 echo "User logged in: "`who | wc -l`
-echo "--- NETWORK ---"
+echo "--- Network ---"
 for IF in `ip address | awk '/mtu/{print $2}'` 
 do IP=(`ip address show "${IF}" | awk '/inet /{print $2}' | xargs`) 
 if [ -z "$IP" ]; 
